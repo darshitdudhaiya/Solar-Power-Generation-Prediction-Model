@@ -5,11 +5,25 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from .analysis.core import generate_perfect_solar_analysis  # Use a relative import
 
-app = FastAPI(
-    title="Solar Analysis API",
-    description="API for solar power generation analysis and prediction",
-)
+from fastapi.middleware.cors import CORSMiddleware
 
+app = FastAPI(title="Solar Analysis API", description="API for solar power generation analysis and prediction")
+
+# --- Define allowed origins (for development, you can use ["*"]) ---
+origins = [
+    "http://localhost",
+    "http://localhost:3000",  # Example: Your React or Vue front-end
+    "http://127.0.0.1:8000",
+]
+
+# --- Add CORS Middleware to the app ---
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,       # Specifies the allowed origins
+    allow_credentials=True,      # Allows cookies and authorization headers
+    allow_methods=["*"],         # Allows all standard methods (GET, POST, etc.)
+    allow_headers=["*"],         # Allows all headers
+)
 
 class SolarInput(BaseModel):
     lat: Optional[float] = None
