@@ -9,20 +9,19 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="Solar Analysis API", description="API for solar power generation analysis and prediction")
 
-# --- Define allowed origins (for development, you can use ["*"]) ---
 origins = [
     "http://localhost",
-    "http://localhost:3000",  # Example: Your React or Vue front-end
+    "http://localhost:3000",  
     "http://127.0.0.1:8000",
 ]
 
 # --- Add CORS Middleware to the app ---
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,       # Specifies the allowed origins
-    allow_credentials=True,      # Allows cookies and authorization headers
-    allow_methods=["*"],         # Allows all standard methods (GET, POST, etc.)
-    allow_headers=["*"],         # Allows all headers
+    allow_origins=origins,       
+    allow_credentials=True,      
+    allow_methods=["*"],         
+    allow_headers=["*"],         
 )
 
 class SolarInput(BaseModel):

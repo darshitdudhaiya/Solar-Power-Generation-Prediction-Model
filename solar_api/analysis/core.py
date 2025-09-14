@@ -409,6 +409,9 @@ def generate_perfect_solar_analysis(
             "location_analysis": {
                 "latitude": lat,
                 "longitude": lon,
+                "location_name": location_name,
+                "current_tilt": current_tilt,
+                "current_azimuth": current_azimuth,
                 "solar_potential_rating": calculate_solar_potential_rating(current_df),
                 "best_months": current_df.groupby("month")["predicted_solar_output_kwh"]
                 .mean()
