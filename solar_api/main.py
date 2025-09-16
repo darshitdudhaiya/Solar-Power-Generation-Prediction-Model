@@ -15,6 +15,7 @@ origins = [
     "http://localhost",
     "http://localhost:3000",  
     "http://127.0.0.1:8000",
+    "https://solarcast.vercel.app",
 ]
 
 # --- Add CORS Middleware to the app ---
