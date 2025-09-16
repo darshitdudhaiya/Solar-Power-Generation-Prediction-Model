@@ -3,8 +3,8 @@
 from typing import Optional
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from analysis.core import generate_perfect_solar_analysis
-
+from solar_api.analysis.core import generate_perfect_solar_analysis
+    
 from fastapi.middleware.cors import CORSMiddleware
 from mangum import Mangum
 
