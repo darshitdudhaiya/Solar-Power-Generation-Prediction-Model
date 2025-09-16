@@ -3,9 +3,11 @@
 from typing import Optional
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from .analysis.core import generate_perfect_solar_analysis  # Use a relative import
+from analysis.core import generate_perfect_solar_analysis
 
 from fastapi.middleware.cors import CORSMiddleware
+from mangum import Mangum
+
 
 app = FastAPI(title="Solar Analysis API", description="API for solar power generation analysis and prediction")
 
@@ -81,3 +83,9 @@ async def get_solar_analysis_report(input_data: SolarInput):
         raise HTTPException(status_code=500, detail="Analysis failed to complete.")
 
     return report
+
+handler = Mangum(app)
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)

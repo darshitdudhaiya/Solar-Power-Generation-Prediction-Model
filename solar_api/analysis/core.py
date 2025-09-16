@@ -6,13 +6,13 @@ import logging
 from datetime import datetime, timedelta
 
 # Import modules from the new package structure
-from solar_api.analysis.data_fetcher import (
+from .data_fetcher import (
     get_coordinates_from_location,
     get_smart_solar_data,
     generate_maintenance_recommendations,
 )
-from solar_api.analysis.models import PerfectSolarPredictor
-from solar_api.analysis.constants import (
+from .models import PerfectSolarPredictor
+from .constants import (
     PANEL_AREA,
     PANEL_EFFICIENCY,
     SYSTEM_EFFICIENCY,

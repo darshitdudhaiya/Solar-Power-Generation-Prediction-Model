@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.ensemble import GradientBoostingRegressor, RandomForestRegressor
 from sklearn.linear_model import LinearRegression, SGDRegressor
 from sklearn.impute import SimpleImputer  # Import the imputer
-from solar_api.analysis.constants import PANEL_AREA, PANEL_EFFICIENCY, SYSTEM_EFFICIENCY
+from .constants import PANEL_AREA, PANEL_EFFICIENCY, SYSTEM_EFFICIENCY
 
 
 class PerfectSolarPredictor:
